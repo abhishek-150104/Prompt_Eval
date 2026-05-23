@@ -17,7 +17,7 @@ def chat(messages, system=None, stop_sequences=[]):
 
     with client.messages.stream(**params)as stream:
         for text in stream.text_stream:
-            print(text, end="")
+            # print(text, end="")
             message = message + text
 
     return message

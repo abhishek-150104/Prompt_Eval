@@ -1,32 +1,9 @@
 import json
-from conversation import add_user_message, add_assistant_message
-from chat import chat
+from run_prompt_eval import run_eval
 
-def generate_dataset():
-    prompt = """
-Generate a evaluation dataset for a prompt evaluation. The dataset will be used to evaluate prompts
-that generate Python, JSON, or Regex specifically for AWS-related tasks. Generate an array of JSON objects,
-each representing task that requires Python, JSON, or a Regex to complete.
+with open("dataset.json", "r") as f:
+    dataset = json.load(f)
 
-Example output:
-```json
-[
-    {
-        "task": "Description of task",
-    },
-    ...additional
-]
-```
+results = run_eval(dataset)
 
-* Focus on tasks that can be solved by writing a single Python function, a single JSON object, or a regular expression.
-* Focus on tasks that do not require writing much code
-
-Please generate 3 objects.
-"""
-    messages=[]
-    add_user_message(messages, prompt)
-    add_assistant_message(messages, "```json")
-    text = chat(messages, stop_sequences=["```"])
-    return json.loads(text)
-
-generate_dataset()
+print(json.dumps(results, indent=2))
