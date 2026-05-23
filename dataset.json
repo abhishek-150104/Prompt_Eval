@@ -1,11 +1,17 @@
 [
   {
-    "task": "Write a Python function that extracts the AWS account ID from an ARN string. The function should take an ARN like 'arn:aws:s3:::my-bucket' or 'arn:aws:iam::123456789012:user/john' and return the account ID if present, or None if not applicable."
+    "task": "Parse an AWS S3 event from EventBridge and extract the bucket name, object key, and event type. Format the extracted data as a structured object.",
+    "format": "json",
+    "solution_criteria": "Solution should parse a sample S3 event JSON and extract bucket name, object key, and event type. Must handle nested JSON structure correctly and be valid JSON format. Should include example input event and output structure."
   },
   {
-    "task": "Create a JSON object that represents an AWS S3 bucket policy allowing public read access to all objects. The policy should include the necessary principals, actions (s3:GetObject), resources, and effect statements."
+    "task": "Write a Python function that validates AWS IAM role ARNs. The function should accept a string and return True if it's a valid IAM role ARN format, False otherwise.",
+    "format": "python",
+    "solution_criteria": "Solution must be a single, production-grade function with proper error handling. Should validate ARN structure (arn:aws:iam::ACCOUNT-ID:role/ROLE-NAME). Include unit tests for valid/invalid cases. Must have O(1) time complexity and minimal memory usage."
   },
   {
-    "task": "Write a regular expression that matches valid AWS EC2 security group IDs. The pattern should match IDs like 'sg-0a1b2c3d4e5f6g7h8' (sg- followed by 17 hexadecimal characters)."
+    "task": "Create a regular expression to match and extract AWS EC2 instance IDs from CloudWatch logs. Instance IDs follow the pattern: i- followed by 17 alphanumeric characters.",
+    "format": "regex",
+    "solution_criteria": "Regex pattern should accurately match AWS EC2 instance ID format (i-XXXXXXXXXXXXXXXXX where X is alphanumeric). Solution should include example log entries showing matches and non-matches. Pattern should be optimized and not use unnecessary backtracking."
   }
 ]
