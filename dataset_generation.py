@@ -14,7 +14,9 @@ Example output:
     {
         "task": "Description of task",
         "format": "python or json or regex"
-       
+        "solution_criteria": solution should include an working solution with runtime , memory usage and solution should production grade answer.
+    },
+    ...additional
 ]
 ```
 
